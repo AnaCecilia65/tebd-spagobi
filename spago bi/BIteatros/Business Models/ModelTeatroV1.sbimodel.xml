@@ -1,0 +1,602 @@
+<?xml version="1.0" encoding="ASCII"?>
+<it.eng.spagobi.meta.model:Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:it.eng.spagobi.meta.model="http:///it/eng/spagobi/meta/model.ecore" xmlns:it.eng.spagobi.meta.model.business="http:///it/eng/spagobi/meta/model/businessl.ecore" name="ModelTeatroV1">
+  <physicalModels name="ModelTeatroV1" databaseName="MySQL" databaseVersion="5.7.19-log" catalog="dwteatro">
+    <properties key="connection.name">
+      <value propertyType="//@propertyTypes.0"/>
+    </properties>
+    <properties key="connection.url">
+      <value propertyType="//@propertyTypes.1"/>
+    </properties>
+    <properties key="connection.username">
+      <value propertyType="//@propertyTypes.2"/>
+    </properties>
+    <properties key="connection.password">
+      <value propertyType="//@propertyTypes.3"/>
+    </properties>
+    <properties key="connection.databasename">
+      <value propertyType="//@propertyTypes.4"/>
+    </properties>
+    <properties key="connection.driver">
+      <value propertyType="//@propertyTypes.5"/>
+    </properties>
+    <properties key="connection.databasequotestring">
+      <value propertyType="//@propertyTypes.6"/>
+    </properties>
+    <tables name="bilhete" comment="" type="TABLE">
+      <columns name="IDBILHETE" comment="" dataType="INTEGER" typeName="INT" size="10" radix="10" position="1"/>
+      <columns name="VALOR" comment="" dataType="DECIMAL" typeName="DECIMAL" size="18" decimalDigits="2" radix="10" nullable="true" position="2"/>
+    </tables>
+    <tables name="espetaculo" comment="" type="TABLE">
+      <columns name="IDESPETACULO" comment="" dataType="INTEGER" typeName="INT" size="10" radix="10" position="1"/>
+      <columns name="NOME" comment="" dataType="VARCHAR" typeName="VARCHAR" size="250" octectLength="250" radix="10" nullable="true" position="2"/>
+    </tables>
+    <tables name="indicador" comment="" type="TABLE">
+      <columns name="IDPROGRAMACAO" comment="" dataType="INTEGER" typeName="INT" size="10" radix="10" position="1"/>
+      <columns name="IDBILHETE" comment="" dataType="INTEGER" typeName="INT" size="10" radix="10" position="2"/>
+      <columns name="IDESPETACULO" comment="" dataType="INTEGER" typeName="INT" size="10" radix="10" position="3"/>
+      <columns name="VENDASBILHETES" comment="" dataType="INTEGER" typeName="INT" size="10" radix="10" nullable="true" position="4"/>
+      <columns name="FATURAMENTOBILHETES" comment="" dataType="DECIMAL" typeName="DECIMAL" size="18" decimalDigits="2" radix="10" nullable="true" position="5"/>
+    </tables>
+    <tables name="programacao" comment="" type="TABLE">
+      <columns name="IDPROGRAMACAO" comment="" dataType="INTEGER" typeName="INT" size="10" radix="10" position="1"/>
+      <columns name="DIA" comment="" dataType="INTEGER" typeName="INT" size="10" radix="10" nullable="true" position="2"/>
+      <columns name="MES" comment="" dataType="INTEGER" typeName="INT" size="10" radix="10" nullable="true" position="3"/>
+      <columns name="ANO" comment="" dataType="INTEGER" typeName="INT" size="10" radix="10" nullable="true" position="4"/>
+    </tables>
+    <primaryKeys name="PRIMARY" table="//@physicalModels.0/@tables.0" columns="//@physicalModels.0/@tables.0/@columns.0"/>
+    <primaryKeys name="PRIMARY" table="//@physicalModels.0/@tables.1" columns="//@physicalModels.0/@tables.1/@columns.0"/>
+    <primaryKeys name="PRIMARY" table="//@physicalModels.0/@tables.2" columns="//@physicalModels.0/@tables.2/@columns.1 //@physicalModels.0/@tables.2/@columns.2 //@physicalModels.0/@tables.2/@columns.0"/>
+    <primaryKeys name="PRIMARY" table="//@physicalModels.0/@tables.3" columns="//@physicalModels.0/@tables.3/@columns.0"/>
+    <foreignKeys sourceTable="//@physicalModels.0/@tables.2" sourceColumns="//@physicalModels.0/@tables.2/@columns.0" sourceName="indicador_ibfk_1" destinationTable="//@physicalModels.0/@tables.3" destinationColumns="//@physicalModels.0/@tables.3/@columns.0"/>
+    <foreignKeys sourceTable="//@physicalModels.0/@tables.2" sourceColumns="//@physicalModels.0/@tables.2/@columns.1" sourceName="indicador_ibfk_2" destinationTable="//@physicalModels.0/@tables.0" destinationColumns="//@physicalModels.0/@tables.0/@columns.0"/>
+    <foreignKeys sourceTable="//@physicalModels.0/@tables.2" sourceColumns="//@physicalModels.0/@tables.2/@columns.2" sourceName="indicador_ibfk_3" destinationTable="//@physicalModels.0/@tables.1" destinationColumns="//@physicalModels.0/@tables.1/@columns.0"/>
+  </physicalModels>
+  <businessModels name="ModelTeatroV1" physicalModel="//@physicalModels.0">
+    <properties key="structural.package">
+      <value propertyType="//@propertyTypes.18"/>
+    </properties>
+    <properties key="structural.file">
+      <value propertyType="//@propertyTypes.19" value="C:\SpagoBI\workspace\BIteatros\Business Models\ModelTeatroV1.sbimodel"/>
+    </properties>
+    <properties key="structural.initializer.name">
+      <value propertyType="//@propertyTypes.20" value="StandardSpagoBIBusinessModelInitializer"/>
+    </properties>
+    <properties key="structural.initializer.version">
+      <value propertyType="//@propertyTypes.21" value="4.1.0"/>
+    </properties>
+    <tables xsi:type="it.eng.spagobi.meta.model.business:BusinessTable" name="Bilhete" uniqueName="bilhete" physicalTable="//@physicalModels.0/@tables.0">
+      <properties key="structural.visible">
+        <value propertyType="//@propertyTypes.7"/>
+      </properties>
+      <properties key="structural.tabletype">
+        <value propertyType="//@propertyTypes.14" value="dimension"/>
+      </properties>
+      <columns xsi:type="it.eng.spagobi.meta.model.business:SimpleBusinessColumn" name="IDBILHETE" uniqueName="IDBILHETE" physicalColumn="//@physicalModels.0/@tables.0/@columns.0">
+        <properties key="structural.visible">
+          <value propertyType="//@propertyTypes.7"/>
+        </properties>
+        <properties key="structural.columntype">
+          <value propertyType="//@propertyTypes.8"/>
+        </properties>
+        <properties key="structural.aggtype">
+          <value propertyType="//@propertyTypes.9"/>
+        </properties>
+        <properties key="structural.format">
+          <value propertyType="//@propertyTypes.10"/>
+        </properties>
+        <properties key="structural.datatype">
+          <value propertyType="//@propertyTypes.11" value="INTEGER"/>
+        </properties>
+        <properties key="style.alignment">
+          <value propertyType="//@propertyTypes.12"/>
+        </properties>
+        <properties key="physical.physicaltable">
+          <value propertyType="//@propertyTypes.13" value="bilhete"/>
+        </properties>
+      </columns>
+      <columns xsi:type="it.eng.spagobi.meta.model.business:SimpleBusinessColumn" name="VALOR" uniqueName="VALOR" physicalColumn="//@physicalModels.0/@tables.0/@columns.1">
+        <properties key="structural.visible">
+          <value propertyType="//@propertyTypes.7"/>
+        </properties>
+        <properties key="structural.columntype">
+          <value propertyType="//@propertyTypes.8"/>
+        </properties>
+        <properties key="structural.aggtype">
+          <value propertyType="//@propertyTypes.9"/>
+        </properties>
+        <properties key="structural.format">
+          <value propertyType="//@propertyTypes.10"/>
+        </properties>
+        <properties key="structural.datatype">
+          <value propertyType="//@propertyTypes.11" value="DECIMAL"/>
+        </properties>
+        <properties key="style.alignment">
+          <value propertyType="//@propertyTypes.12"/>
+        </properties>
+        <properties key="physical.physicaltable">
+          <value propertyType="//@propertyTypes.13" value="bilhete"/>
+        </properties>
+      </columns>
+    </tables>
+    <tables xsi:type="it.eng.spagobi.meta.model.business:BusinessTable" name="Espetaculo" uniqueName="espetaculo" physicalTable="//@physicalModels.0/@tables.1">
+      <properties key="structural.visible">
+        <value propertyType="//@propertyTypes.7"/>
+      </properties>
+      <properties key="structural.tabletype">
+        <value propertyType="//@propertyTypes.14" value="dimension"/>
+      </properties>
+      <columns xsi:type="it.eng.spagobi.meta.model.business:SimpleBusinessColumn" name="IDESPETACULO" uniqueName="IDESPETACULO" physicalColumn="//@physicalModels.0/@tables.1/@columns.0">
+        <properties key="structural.visible">
+          <value propertyType="//@propertyTypes.7"/>
+        </properties>
+        <properties key="structural.columntype">
+          <value propertyType="//@propertyTypes.8"/>
+        </properties>
+        <properties key="structural.aggtype">
+          <value propertyType="//@propertyTypes.9"/>
+        </properties>
+        <properties key="structural.format">
+          <value propertyType="//@propertyTypes.10"/>
+        </properties>
+        <properties key="structural.datatype">
+          <value propertyType="//@propertyTypes.11" value="INTEGER"/>
+        </properties>
+        <properties key="style.alignment">
+          <value propertyType="//@propertyTypes.12"/>
+        </properties>
+        <properties key="physical.physicaltable">
+          <value propertyType="//@propertyTypes.13" value="espetaculo"/>
+        </properties>
+      </columns>
+      <columns xsi:type="it.eng.spagobi.meta.model.business:SimpleBusinessColumn" name="NOME" uniqueName="NOME" physicalColumn="//@physicalModels.0/@tables.1/@columns.1">
+        <properties key="structural.visible">
+          <value propertyType="//@propertyTypes.7"/>
+        </properties>
+        <properties key="structural.columntype">
+          <value propertyType="//@propertyTypes.8"/>
+        </properties>
+        <properties key="structural.aggtype">
+          <value propertyType="//@propertyTypes.9"/>
+        </properties>
+        <properties key="structural.format">
+          <value propertyType="//@propertyTypes.10"/>
+        </properties>
+        <properties key="structural.datatype">
+          <value propertyType="//@propertyTypes.11" value="VARCHAR"/>
+        </properties>
+        <properties key="style.alignment">
+          <value propertyType="//@propertyTypes.12"/>
+        </properties>
+        <properties key="physical.physicaltable">
+          <value propertyType="//@propertyTypes.13" value="espetaculo"/>
+        </properties>
+      </columns>
+    </tables>
+    <tables xsi:type="it.eng.spagobi.meta.model.business:BusinessTable" name="Indicador" uniqueName="indicador" physicalTable="//@physicalModels.0/@tables.2">
+      <properties key="structural.visible">
+        <value propertyType="//@propertyTypes.7"/>
+      </properties>
+      <properties key="structural.tabletype">
+        <value propertyType="//@propertyTypes.14" value="cube"/>
+      </properties>
+      <columns xsi:type="it.eng.spagobi.meta.model.business:SimpleBusinessColumn" name="IDPROGRAMACAO" uniqueName="IDPROGRAMACAO" physicalColumn="//@physicalModels.0/@tables.2/@columns.0">
+        <properties key="structural.visible">
+          <value propertyType="//@propertyTypes.7"/>
+        </properties>
+        <properties key="structural.columntype">
+          <value propertyType="//@propertyTypes.8"/>
+        </properties>
+        <properties key="structural.aggtype">
+          <value propertyType="//@propertyTypes.9"/>
+        </properties>
+        <properties key="structural.format">
+          <value propertyType="//@propertyTypes.10"/>
+        </properties>
+        <properties key="structural.datatype">
+          <value propertyType="//@propertyTypes.11" value="INTEGER"/>
+        </properties>
+        <properties key="style.alignment">
+          <value propertyType="//@propertyTypes.12"/>
+        </properties>
+        <properties key="physical.physicaltable">
+          <value propertyType="//@propertyTypes.13" value="indicador"/>
+        </properties>
+      </columns>
+      <columns xsi:type="it.eng.spagobi.meta.model.business:SimpleBusinessColumn" name="IDBILHETE" uniqueName="IDBILHETE" physicalColumn="//@physicalModels.0/@tables.2/@columns.1">
+        <properties key="structural.visible">
+          <value propertyType="//@propertyTypes.7"/>
+        </properties>
+        <properties key="structural.columntype">
+          <value propertyType="//@propertyTypes.8"/>
+        </properties>
+        <properties key="structural.aggtype">
+          <value propertyType="//@propertyTypes.9"/>
+        </properties>
+        <properties key="structural.format">
+          <value propertyType="//@propertyTypes.10"/>
+        </properties>
+        <properties key="structural.datatype">
+          <value propertyType="//@propertyTypes.11" value="INTEGER"/>
+        </properties>
+        <properties key="style.alignment">
+          <value propertyType="//@propertyTypes.12"/>
+        </properties>
+        <properties key="physical.physicaltable">
+          <value propertyType="//@propertyTypes.13" value="indicador"/>
+        </properties>
+      </columns>
+      <columns xsi:type="it.eng.spagobi.meta.model.business:SimpleBusinessColumn" name="IDESPETACULO" uniqueName="IDESPETACULO" physicalColumn="//@physicalModels.0/@tables.2/@columns.2">
+        <properties key="structural.visible">
+          <value propertyType="//@propertyTypes.7"/>
+        </properties>
+        <properties key="structural.columntype">
+          <value propertyType="//@propertyTypes.8"/>
+        </properties>
+        <properties key="structural.aggtype">
+          <value propertyType="//@propertyTypes.9"/>
+        </properties>
+        <properties key="structural.format">
+          <value propertyType="//@propertyTypes.10"/>
+        </properties>
+        <properties key="structural.datatype">
+          <value propertyType="//@propertyTypes.11" value="INTEGER"/>
+        </properties>
+        <properties key="style.alignment">
+          <value propertyType="//@propertyTypes.12"/>
+        </properties>
+        <properties key="physical.physicaltable">
+          <value propertyType="//@propertyTypes.13" value="indicador"/>
+        </properties>
+      </columns>
+      <columns xsi:type="it.eng.spagobi.meta.model.business:SimpleBusinessColumn" name="VENDASBILHETES" uniqueName="VENDASBILHETES" physicalColumn="//@physicalModels.0/@tables.2/@columns.3">
+        <properties key="structural.visible">
+          <value propertyType="//@propertyTypes.7"/>
+        </properties>
+        <properties key="structural.columntype">
+          <value propertyType="//@propertyTypes.8" value="measure"/>
+        </properties>
+        <properties key="structural.aggtype">
+          <value propertyType="//@propertyTypes.9"/>
+        </properties>
+        <properties key="structural.format">
+          <value propertyType="//@propertyTypes.10"/>
+        </properties>
+        <properties key="structural.datatype">
+          <value propertyType="//@propertyTypes.11" value="INTEGER"/>
+        </properties>
+        <properties key="style.alignment">
+          <value propertyType="//@propertyTypes.12"/>
+        </properties>
+        <properties key="physical.physicaltable">
+          <value propertyType="//@propertyTypes.13" value="indicador"/>
+        </properties>
+      </columns>
+      <columns xsi:type="it.eng.spagobi.meta.model.business:SimpleBusinessColumn" name="FATURAMENTOBILHETES" uniqueName="FATURAMENTOBILHETES" physicalColumn="//@physicalModels.0/@tables.2/@columns.4">
+        <properties key="structural.visible">
+          <value propertyType="//@propertyTypes.7"/>
+        </properties>
+        <properties key="structural.columntype">
+          <value propertyType="//@propertyTypes.8" value="measure"/>
+        </properties>
+        <properties key="structural.aggtype">
+          <value propertyType="//@propertyTypes.9"/>
+        </properties>
+        <properties key="structural.format">
+          <value propertyType="//@propertyTypes.10"/>
+        </properties>
+        <properties key="structural.datatype">
+          <value propertyType="//@propertyTypes.11" value="DECIMAL"/>
+        </properties>
+        <properties key="style.alignment">
+          <value propertyType="//@propertyTypes.12"/>
+        </properties>
+        <properties key="physical.physicaltable">
+          <value propertyType="//@propertyTypes.13" value="indicador"/>
+        </properties>
+      </columns>
+    </tables>
+    <tables xsi:type="it.eng.spagobi.meta.model.business:BusinessTable" name="Programacao" uniqueName="programacao" physicalTable="//@physicalModels.0/@tables.3">
+      <properties key="structural.visible">
+        <value propertyType="//@propertyTypes.7"/>
+      </properties>
+      <properties key="structural.tabletype">
+        <value propertyType="//@propertyTypes.14" value="dimension"/>
+      </properties>
+      <columns xsi:type="it.eng.spagobi.meta.model.business:SimpleBusinessColumn" name="IDPROGRAMACAO" uniqueName="IDPROGRAMACAO" physicalColumn="//@physicalModels.0/@tables.3/@columns.0">
+        <properties key="structural.visible">
+          <value propertyType="//@propertyTypes.7"/>
+        </properties>
+        <properties key="structural.columntype">
+          <value propertyType="//@propertyTypes.8"/>
+        </properties>
+        <properties key="structural.aggtype">
+          <value propertyType="//@propertyTypes.9"/>
+        </properties>
+        <properties key="structural.format">
+          <value propertyType="//@propertyTypes.10"/>
+        </properties>
+        <properties key="structural.datatype">
+          <value propertyType="//@propertyTypes.11" value="INTEGER"/>
+        </properties>
+        <properties key="style.alignment">
+          <value propertyType="//@propertyTypes.12"/>
+        </properties>
+        <properties key="physical.physicaltable">
+          <value propertyType="//@propertyTypes.13" value="programacao"/>
+        </properties>
+      </columns>
+      <columns xsi:type="it.eng.spagobi.meta.model.business:SimpleBusinessColumn" name="DIA" uniqueName="DIA" physicalColumn="//@physicalModels.0/@tables.3/@columns.1">
+        <properties key="structural.visible">
+          <value propertyType="//@propertyTypes.7"/>
+        </properties>
+        <properties key="structural.columntype">
+          <value propertyType="//@propertyTypes.8"/>
+        </properties>
+        <properties key="structural.aggtype">
+          <value propertyType="//@propertyTypes.9"/>
+        </properties>
+        <properties key="structural.format">
+          <value propertyType="//@propertyTypes.10"/>
+        </properties>
+        <properties key="structural.datatype">
+          <value propertyType="//@propertyTypes.11" value="INTEGER"/>
+        </properties>
+        <properties key="style.alignment">
+          <value propertyType="//@propertyTypes.12"/>
+        </properties>
+        <properties key="physical.physicaltable">
+          <value propertyType="//@propertyTypes.13" value="programacao"/>
+        </properties>
+      </columns>
+      <columns xsi:type="it.eng.spagobi.meta.model.business:SimpleBusinessColumn" name="MES" uniqueName="MES" physicalColumn="//@physicalModels.0/@tables.3/@columns.2">
+        <properties key="structural.visible">
+          <value propertyType="//@propertyTypes.7"/>
+        </properties>
+        <properties key="structural.columntype">
+          <value propertyType="//@propertyTypes.8"/>
+        </properties>
+        <properties key="structural.aggtype">
+          <value propertyType="//@propertyTypes.9"/>
+        </properties>
+        <properties key="structural.format">
+          <value propertyType="//@propertyTypes.10"/>
+        </properties>
+        <properties key="structural.datatype">
+          <value propertyType="//@propertyTypes.11" value="INTEGER"/>
+        </properties>
+        <properties key="style.alignment">
+          <value propertyType="//@propertyTypes.12"/>
+        </properties>
+        <properties key="physical.physicaltable">
+          <value propertyType="//@propertyTypes.13" value="programacao"/>
+        </properties>
+      </columns>
+      <columns xsi:type="it.eng.spagobi.meta.model.business:SimpleBusinessColumn" name="ANO" uniqueName="ANO" physicalColumn="//@physicalModels.0/@tables.3/@columns.3">
+        <properties key="structural.visible">
+          <value propertyType="//@propertyTypes.7"/>
+        </properties>
+        <properties key="structural.columntype">
+          <value propertyType="//@propertyTypes.8"/>
+        </properties>
+        <properties key="structural.aggtype">
+          <value propertyType="//@propertyTypes.9"/>
+        </properties>
+        <properties key="structural.format">
+          <value propertyType="//@propertyTypes.10"/>
+        </properties>
+        <properties key="structural.datatype">
+          <value propertyType="//@propertyTypes.11" value="INTEGER"/>
+        </properties>
+        <properties key="style.alignment">
+          <value propertyType="//@propertyTypes.12"/>
+        </properties>
+        <properties key="physical.physicaltable">
+          <value propertyType="//@propertyTypes.13" value="programacao"/>
+        </properties>
+      </columns>
+    </tables>
+    <relationships name="indicador_ibfk_1" uniqueName="indicador_ibfk_1" sourceTable="//@businessModels.0/@tables.2" destinationTable="//@businessModels.0/@tables.3" sourceColumns="//@businessModels.0/@tables.2/@columns.0" destinationColumns="//@businessModels.0/@tables.3/@columns.0" physicalForeignKey="//@physicalModels.0/@foreignKeys.0">
+      <properties key="structural.destinationRole">
+        <value propertyType="//@propertyTypes.15" value="Programacao"/>
+      </properties>
+      <properties key="structural.forceVisibilityAsSubentity">
+        <value propertyType="//@propertyTypes.16"/>
+      </properties>
+      <properties key="structural.cardinality">
+        <value propertyType="//@propertyTypes.17"/>
+      </properties>
+    </relationships>
+    <relationships name="indicador_ibfk_2" uniqueName="indicador_ibfk_2" sourceTable="//@businessModels.0/@tables.2" destinationTable="//@businessModels.0/@tables.0" sourceColumns="//@businessModels.0/@tables.2/@columns.1" destinationColumns="//@businessModels.0/@tables.0/@columns.0" physicalForeignKey="//@physicalModels.0/@foreignKeys.1">
+      <properties key="structural.destinationRole">
+        <value propertyType="//@propertyTypes.15" value="Bilhete"/>
+      </properties>
+      <properties key="structural.forceVisibilityAsSubentity">
+        <value propertyType="//@propertyTypes.16"/>
+      </properties>
+      <properties key="structural.cardinality">
+        <value propertyType="//@propertyTypes.17"/>
+      </properties>
+    </relationships>
+    <relationships name="indicador_ibfk_3" uniqueName="indicador_ibfk_3" sourceTable="//@businessModels.0/@tables.2" destinationTable="//@businessModels.0/@tables.1" sourceColumns="//@businessModels.0/@tables.2/@columns.2" destinationColumns="//@businessModels.0/@tables.1/@columns.0" physicalForeignKey="//@physicalModels.0/@foreignKeys.2">
+      <properties key="structural.destinationRole">
+        <value propertyType="//@propertyTypes.15" value="Espetaculo"/>
+      </properties>
+      <properties key="structural.forceVisibilityAsSubentity">
+        <value propertyType="//@propertyTypes.16"/>
+      </properties>
+      <properties key="structural.cardinality">
+        <value propertyType="//@propertyTypes.17"/>
+      </properties>
+    </relationships>
+    <relationships name="BR_Bilhete_Indicador" uniqueName="BR_Bilhete_Indicador" sourceTable="//@businessModels.0/@tables.0" destinationTable="//@businessModels.0/@tables.2" sourceColumns="//@businessModels.0/@tables.0/@columns.0" destinationColumns="//@businessModels.0/@tables.2/@columns.1">
+      <properties key="structural.destinationRole">
+        <value propertyType="//@propertyTypes.15" value="Indicador"/>
+      </properties>
+      <properties key="structural.forceVisibilityAsSubentity">
+        <value propertyType="//@propertyTypes.16"/>
+      </properties>
+      <properties key="structural.cardinality">
+        <value propertyType="//@propertyTypes.17" value="one-to-many"/>
+      </properties>
+    </relationships>
+    <relationships name="BR_Espetaculo_Indicador" uniqueName="BR_Espetaculo_Indicador" sourceTable="//@businessModels.0/@tables.1" destinationTable="//@businessModels.0/@tables.2" sourceColumns="//@businessModels.0/@tables.1/@columns.0" destinationColumns="//@businessModels.0/@tables.2/@columns.2">
+      <properties key="structural.destinationRole">
+        <value propertyType="//@propertyTypes.15" value="Indicador"/>
+      </properties>
+      <properties key="structural.forceVisibilityAsSubentity">
+        <value propertyType="//@propertyTypes.16"/>
+      </properties>
+      <properties key="structural.cardinality">
+        <value propertyType="//@propertyTypes.17" value="one-to-many"/>
+      </properties>
+    </relationships>
+    <relationships name="BR_Programacao_Indicador" uniqueName="BR_Programacao_Indicador" sourceTable="//@businessModels.0/@tables.3" destinationTable="//@businessModels.0/@tables.2" sourceColumns="//@businessModels.0/@tables.3/@columns.0" destinationColumns="//@businessModels.0/@tables.2/@columns.0">
+      <properties key="structural.destinationRole">
+        <value propertyType="//@propertyTypes.15" value="Indicador"/>
+      </properties>
+      <properties key="structural.forceVisibilityAsSubentity">
+        <value propertyType="//@propertyTypes.16"/>
+      </properties>
+      <properties key="structural.cardinality">
+        <value propertyType="//@propertyTypes.17" value="one-to-many"/>
+      </properties>
+    </relationships>
+    <identifiers name="PRIMARY" uniqueName="PRIMARY" table="//@businessModels.0/@tables.0" columns="//@businessModels.0/@tables.0/@columns.0" physicalPrimaryKey="//@physicalModels.0/@primaryKeys.0"/>
+    <identifiers name="PRIMARY" uniqueName="PRIMARY" table="//@businessModels.0/@tables.1" columns="//@businessModels.0/@tables.1/@columns.0" physicalPrimaryKey="//@physicalModels.0/@primaryKeys.1"/>
+    <identifiers name="PRIMARY" uniqueName="PRIMARY" table="//@businessModels.0/@tables.2" columns="//@businessModels.0/@tables.2/@columns.1 //@businessModels.0/@tables.2/@columns.2 //@businessModels.0/@tables.2/@columns.0" physicalPrimaryKey="//@physicalModels.0/@primaryKeys.2"/>
+    <identifiers name="PRIMARY" uniqueName="PRIMARY" table="//@businessModels.0/@tables.3" columns="//@businessModels.0/@tables.3/@columns.0" physicalPrimaryKey="//@physicalModels.0/@primaryKeys.3"/>
+  </businessModels>
+  <olapModels name="ModelTeatroV1">
+    <cubes name="Indicador" table="//@businessModels.0/@tables.2" dimensions="//@olapModels.0/@dimensions.0 //@olapModels.0/@dimensions.1 //@olapModels.0/@dimensions.2">
+      <measures name="VENDASBILHETES" column="//@businessModels.0/@tables.2/@columns.3"/>
+      <measures name="FATURAMENTOBILHETES" column="//@businessModels.0/@tables.2/@columns.4"/>
+    </cubes>
+    <dimensions name="Bilhete" table="//@businessModels.0/@tables.0">
+      <hierarchies name="Bilhete" table="//@businessModels.0/@tables.0">
+        <properties key="structural.hasall">
+          <value propertyType="//@propertyTypes.23" value="true"/>
+        </properties>
+        <properties key="structural.allmembername">
+          <value propertyType="//@propertyTypes.24" value="All Bilhete"/>
+        </properties>
+        <levels name="VALOR" column="//@businessModels.0/@tables.0/@columns.1">
+          <properties key="structural.uniquemembers">
+            <value propertyType="//@propertyTypes.22" value="false"/>
+          </properties>
+        </levels>
+      </hierarchies>
+    </dimensions>
+    <dimensions name="Espetaculo" table="//@businessModels.0/@tables.1">
+      <hierarchies name="Espetaculo" table="//@businessModels.0/@tables.1">
+        <properties key="structural.hasall">
+          <value propertyType="//@propertyTypes.23" value="true"/>
+        </properties>
+        <properties key="structural.allmembername">
+          <value propertyType="//@propertyTypes.24" value="All Espetaculo"/>
+        </properties>
+        <levels name="NOME" column="//@businessModels.0/@tables.1/@columns.1">
+          <properties key="structural.uniquemembers">
+            <value propertyType="//@propertyTypes.22" value="false"/>
+          </properties>
+        </levels>
+      </hierarchies>
+    </dimensions>
+    <dimensions name="Programacao" table="//@businessModels.0/@tables.3">
+      <hierarchies name="Programacao" table="//@businessModels.0/@tables.3">
+        <properties key="structural.hasall">
+          <value propertyType="//@propertyTypes.23" value="true"/>
+        </properties>
+        <properties key="structural.allmembername">
+          <value propertyType="//@propertyTypes.24" value="All Programacao"/>
+        </properties>
+        <levels name="ANO" column="//@businessModels.0/@tables.3/@columns.3">
+          <properties key="structural.uniquemembers">
+            <value propertyType="//@propertyTypes.22" value="false"/>
+          </properties>
+        </levels>
+        <levels name="MES" column="//@businessModels.0/@tables.3/@columns.2">
+          <properties key="structural.uniquemembers">
+            <value propertyType="//@propertyTypes.22" value="false"/>
+          </properties>
+        </levels>
+        <levels name="DIA" column="//@businessModels.0/@tables.3/@columns.1">
+          <properties key="structural.uniquemembers">
+            <value propertyType="//@propertyTypes.22" value="false"/>
+          </properties>
+        </levels>
+      </hierarchies>
+    </dimensions>
+  </olapModels>
+  <propertyTypes id="connection.name" name="Connection Name" description="Data Source Connection Name" category="//@propertyCategories.0" defaultValue="dwTeatro"/>
+  <propertyTypes id="connection.url" name="Connection Url" description="Data Source Connection Url" category="//@propertyCategories.0" defaultValue="jdbc:mysql://localhost:3306/dwteatro"/>
+  <propertyTypes id="connection.username" name="Connection Username" description="Data Source Connection Username" category="//@propertyCategories.0" defaultValue="root"/>
+  <propertyTypes id="connection.password" name="Connection Password" description="Data Source Connection Password" category="//@propertyCategories.0" defaultValue="1234"/>
+  <propertyTypes id="connection.databasename" name="Connection DatabaseName" description="Data Source Connection Database Name" category="//@propertyCategories.0" defaultValue="dwteatro"/>
+  <propertyTypes id="connection.driver" name="Connection driver" description="Data Source Connection driver" category="//@propertyCategories.0" defaultValue="com.mysql.jdbc.Driver"/>
+  <propertyTypes id="connection.databasequotestring" name="Connection DatabaseQuoteString" description="Data Source Connection Database Quote String" category="//@propertyCategories.0" defaultValue="`"/>
+  <propertyTypes id="structural.visible" name="Visible" description="Specify if this column is visible in the query editor" category="//@propertyCategories.1" defaultValue="true">
+    <admissibleValues>true</admissibleValues>
+    <admissibleValues>false</admissibleValues>
+  </propertyTypes>
+  <propertyTypes id="structural.columntype" name="Type" description="The role played by this column in the data model (measure or attribute)" category="//@propertyCategories.1" defaultValue="attribute">
+    <admissibleValues>measure</admissibleValues>
+    <admissibleValues>attribute</admissibleValues>
+  </propertyTypes>
+  <propertyTypes id="structural.aggtype" name="Aggregation Type" description="The preferred aggregation type for the give column (COUNT, SUM, AVG, MAX, MIN)" category="//@propertyCategories.1" defaultValue="SUM">
+    <admissibleValues>COUNT</admissibleValues>
+    <admissibleValues>SUM</admissibleValues>
+    <admissibleValues>AVG</admissibleValues>
+    <admissibleValues>MAX</admissibleValues>
+    <admissibleValues>MIN</admissibleValues>
+    <admissibleValues>DISTINCT-COUNT</admissibleValues>
+  </propertyTypes>
+  <propertyTypes id="structural.format" name="Format String" description="The numeric format to use if the value is numeric" category="//@propertyCategories.1" defaultValue="#,###">
+    <admissibleValues>#,###</admissibleValues>
+    <admissibleValues>#,###.00</admissibleValues>
+    <admissibleValues>#.###</admissibleValues>
+    <admissibleValues>$#,##0.00</admissibleValues>
+    <admissibleValues>&#x20ac;#,##0.00</admissibleValues>
+  </propertyTypes>
+  <propertyTypes id="structural.datatype" name="Data Type" description="The data type of the given column (VARCHAR, INTEGER, DOUBLE, ...)" category="//@propertyCategories.1" defaultValue="VARCHAR">
+    <admissibleValues>VARCHAR</admissibleValues>
+    <admissibleValues>INTEGER</admissibleValues>
+    <admissibleValues>DOUBLE</admissibleValues>
+    <admissibleValues>DATE</admissibleValues>
+    <admissibleValues>TIMESTAMP</admissibleValues>
+  </propertyTypes>
+  <propertyTypes id="style.alignment" name="Alignment Type" description="The preferred alignment type for the give column (LEFT, CENTER, RIGHT, JUSTIFIED)" category="//@propertyCategories.2" defaultValue="LEFT">
+    <admissibleValues>LEFT</admissibleValues>
+    <admissibleValues>CENTER</admissibleValues>
+    <admissibleValues>RIGHT</admissibleValues>
+    <admissibleValues>JUSTIFIED</admissibleValues>
+  </propertyTypes>
+  <propertyTypes id="physical.physicaltable" name="Physical table" description="The original physical table of this column" category="//@propertyCategories.3" defaultValue="bilhete"/>
+  <propertyTypes id="structural.tabletype" name="Type" description="The role played by this table in the data model (generic, cube or dimension)" category="//@propertyCategories.1" defaultValue="generic">
+    <admissibleValues>generic</admissibleValues>
+    <admissibleValues>cube</admissibleValues>
+    <admissibleValues>dimension</admissibleValues>
+  </propertyTypes>
+  <propertyTypes id="structural.destinationRole" name="Destination Role" description="Role name of the destination table" category="//@propertyCategories.1" defaultValue="role name"/>
+  <propertyTypes id="structural.forceVisibilityAsSubentity" name="Force visibility as Sub-entity" description="Force visibility of destination Table as Sub-entity" category="//@propertyCategories.1" defaultValue="false">
+    <admissibleValues>true</admissibleValues>
+    <admissibleValues>false</admissibleValues>
+  </propertyTypes>
+  <propertyTypes id="structural.cardinality" name="Business Relationship Cardinality" description="Business Relationship Cardinality" category="//@propertyCategories.1" defaultValue="many-to-one"/>
+  <propertyTypes id="structural.package" name="Package Name" description="Package name used in JPA mapping" category="//@propertyCategories.1" defaultValue="it.eng.spagobi.meta"/>
+  <propertyTypes id="structural.file" name="File" description="File used to store this model" category="//@propertyCategories.1" defaultValue="model.sbimodel"/>
+  <propertyTypes id="structural.initializer.name" name="Initializer Name" description="The name of the initializer used to build the model" category="//@propertyCategories.1" defaultValue="unknown"/>
+  <propertyTypes id="structural.initializer.version" name="Initializer Version" description="The version of the initializer used to build the model" category="//@propertyCategories.1" defaultValue="unknown"/>
+  <propertyTypes id="structural.uniquemembers" name="Unique Members" description="Unique members for the level" category="//@propertyCategories.1" defaultValue="false">
+    <admissibleValues>true</admissibleValues>
+    <admissibleValues>false</admissibleValues>
+  </propertyTypes>
+  <propertyTypes id="structural.hasall" name="HasAll" description="Has All Hierarchy Properties" category="//@propertyCategories.1" defaultValue="true">
+    <admissibleValues>true</admissibleValues>
+    <admissibleValues>false</admissibleValues>
+  </propertyTypes>
+  <propertyTypes id="structural.allmembername" name="All Member Name" description="The role played by this table in the data model (generic, cube or dimension)" category="//@propertyCategories.1" defaultValue="All"/>
+  <propertyCategories name="Connection" propertyTypes="//@propertyTypes.0 //@propertyTypes.1 //@propertyTypes.2 //@propertyTypes.3 //@propertyTypes.4 //@propertyTypes.5 //@propertyTypes.6" description="Connection properties"/>
+  <propertyCategories name="Structural" propertyTypes="//@propertyTypes.7 //@propertyTypes.8 //@propertyTypes.9 //@propertyTypes.10 //@propertyTypes.11 //@propertyTypes.14 //@propertyTypes.15 //@propertyTypes.16 //@propertyTypes.17 //@propertyTypes.18 //@propertyTypes.19 //@propertyTypes.20 //@propertyTypes.21 //@propertyTypes.22 //@propertyTypes.23 //@propertyTypes.24" description="Structural properties"/>
+  <propertyCategories name="Style" propertyTypes="//@propertyTypes.12" description="Style properties"/>
+  <propertyCategories name="Physical References" propertyTypes="//@propertyTypes.13" description="The reference to the original physical object"/>
+</it.eng.spagobi.meta.model:Model>

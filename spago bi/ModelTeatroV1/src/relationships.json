@@ -1,0 +1,365 @@
+
+{
+	"relationships": [
+		 //==================================================================
+		 // 1 Bilhete
+		 //==================================================================
+		 
+		 		 
+		 {
+			//---------------------------------------------------------------
+		 	// 1 Bidirectional one-to-many association to Indicador
+		 	//---------------------------------------------------------------
+		 	"name": 'rel_IDBILHETE_in_bilhete'
+			, "bidirectional": true
+			, "cardinality": 'one-to-many'
+			, "label": 'indicador_ibfk_2'
+		
+			, "sourceTable": {
+				"name": 'Bilhete'
+				, "uniqueName": 'it.eng.spagobi.meta.Bilhete//Bilhete'
+				, "package": 'it.eng.spagobi.meta'
+				, "className": 'Bilhete'
+			}
+			, "sourceColumns": [
+					'IDBILHETE'								]
+			, "destinationTable": {
+				"name": 'Indicador'
+				, "uniqueName": 'it.eng.spagobi.meta.Indicador//Indicador'
+				, "package": 'it.eng.spagobi.meta'
+				, "className": 'Indicador'
+			}
+			, "destinationColumns": [
+					'compId.IDBILHETE'								
+			]
+		}
+		
+		 ,  {
+			//---------------------------------------------------------------
+		 	// 2 Bidirectional one-to-many association to Indicador
+		 	//---------------------------------------------------------------
+		 	"name": 'rel_IDBILHETE_in_indicador'
+			, "bidirectional": true
+			, "cardinality": 'one-to-many'
+			, "label": 'BR_Bilhete_Indicador'
+		
+			, "sourceTable": {
+				"name": 'Bilhete'
+				, "uniqueName": 'it.eng.spagobi.meta.Bilhete//Bilhete'
+				, "package": 'it.eng.spagobi.meta'
+				, "className": 'Bilhete'
+			}
+			, "sourceColumns": [
+					'IDBILHETE'								]
+			, "destinationTable": {
+				"name": 'Indicador'
+				, "uniqueName": 'it.eng.spagobi.meta.Indicador//Indicador'
+				, "package": 'it.eng.spagobi.meta'
+				, "className": 'Indicador'
+			}
+			, "destinationColumns": [
+					'compId.IDBILHETE'								
+			]
+		}
+		
+
+		 //==================================================================
+		 // 2 Espetaculo
+		 //==================================================================
+		 
+		  , 		 
+		 {
+			//---------------------------------------------------------------
+		 	// 1 Bidirectional one-to-many association to Indicador
+		 	//---------------------------------------------------------------
+		 	"name": 'rel_IDESPETACULO_in_espetaculo'
+			, "bidirectional": true
+			, "cardinality": 'one-to-many'
+			, "label": 'indicador_ibfk_3'
+		
+			, "sourceTable": {
+				"name": 'Espetaculo'
+				, "uniqueName": 'it.eng.spagobi.meta.Espetaculo//Espetaculo'
+				, "package": 'it.eng.spagobi.meta'
+				, "className": 'Espetaculo'
+			}
+			, "sourceColumns": [
+					'IDESPETACULO'								]
+			, "destinationTable": {
+				"name": 'Indicador'
+				, "uniqueName": 'it.eng.spagobi.meta.Indicador//Indicador'
+				, "package": 'it.eng.spagobi.meta'
+				, "className": 'Indicador'
+			}
+			, "destinationColumns": [
+					'compId.IDESPETACULO'								
+			]
+		}
+		
+		 ,  {
+			//---------------------------------------------------------------
+		 	// 2 Bidirectional one-to-many association to Indicador
+		 	//---------------------------------------------------------------
+		 	"name": 'rel_IDESPETACULO_in_indicador'
+			, "bidirectional": true
+			, "cardinality": 'one-to-many'
+			, "label": 'BR_Espetaculo_Indicador'
+		
+			, "sourceTable": {
+				"name": 'Espetaculo'
+				, "uniqueName": 'it.eng.spagobi.meta.Espetaculo//Espetaculo'
+				, "package": 'it.eng.spagobi.meta'
+				, "className": 'Espetaculo'
+			}
+			, "sourceColumns": [
+					'IDESPETACULO'								]
+			, "destinationTable": {
+				"name": 'Indicador'
+				, "uniqueName": 'it.eng.spagobi.meta.Indicador//Indicador'
+				, "package": 'it.eng.spagobi.meta'
+				, "className": 'Indicador'
+			}
+			, "destinationColumns": [
+					'compId.IDESPETACULO'								
+			]
+		}
+		
+
+		 //==================================================================
+		 // 3 Indicador
+		 //==================================================================
+		 
+		  , 		 
+		 {
+			//---------------------------------------------------------------
+		 	// 1 Bidirectional many-to-one association to Programacao
+		 	//---------------------------------------------------------------
+		 	"name": 'rel_IDPROGRAMACAO_in_programacao'
+			, "bidirectional": true
+			, "cardinality": 'many-to-one'
+			, "label": 'indicador_ibfk_1'
+		
+			, "sourceTable": {
+				"name": 'Indicador'
+				, "uniqueName": 'it.eng.spagobi.meta.Indicador//Indicador'
+				, "package": 'it.eng.spagobi.meta'
+				, "className": 'Indicador'
+			}
+			, "sourceColumns": [
+					'compId.IDPROGRAMACAO'								]
+			, "destinationTable": {
+				"name": 'Programacao'
+				, "uniqueName": 'it.eng.spagobi.meta.Programacao//Programacao'
+				, "package": 'it.eng.spagobi.meta'
+				, "className": 'Programacao'
+			}
+			, "destinationColumns": [
+					'IDPROGRAMACAO'								
+			]
+		}
+		
+		 ,  {
+			//---------------------------------------------------------------
+		 	// 2 Bidirectional many-to-one association to Bilhete
+		 	//---------------------------------------------------------------
+		 	"name": 'rel_IDBILHETE_in_bilhete'
+			, "bidirectional": true
+			, "cardinality": 'many-to-one'
+			, "label": 'indicador_ibfk_2'
+		
+			, "sourceTable": {
+				"name": 'Indicador'
+				, "uniqueName": 'it.eng.spagobi.meta.Indicador//Indicador'
+				, "package": 'it.eng.spagobi.meta'
+				, "className": 'Indicador'
+			}
+			, "sourceColumns": [
+					'compId.IDBILHETE'								]
+			, "destinationTable": {
+				"name": 'Bilhete'
+				, "uniqueName": 'it.eng.spagobi.meta.Bilhete//Bilhete'
+				, "package": 'it.eng.spagobi.meta'
+				, "className": 'Bilhete'
+			}
+			, "destinationColumns": [
+					'IDBILHETE'								
+			]
+		}
+		
+		 ,  {
+			//---------------------------------------------------------------
+		 	// 3 Bidirectional many-to-one association to Espetaculo
+		 	//---------------------------------------------------------------
+		 	"name": 'rel_IDESPETACULO_in_espetaculo'
+			, "bidirectional": true
+			, "cardinality": 'many-to-one'
+			, "label": 'indicador_ibfk_3'
+		
+			, "sourceTable": {
+				"name": 'Indicador'
+				, "uniqueName": 'it.eng.spagobi.meta.Indicador//Indicador'
+				, "package": 'it.eng.spagobi.meta'
+				, "className": 'Indicador'
+			}
+			, "sourceColumns": [
+					'compId.IDESPETACULO'								]
+			, "destinationTable": {
+				"name": 'Espetaculo'
+				, "uniqueName": 'it.eng.spagobi.meta.Espetaculo//Espetaculo'
+				, "package": 'it.eng.spagobi.meta'
+				, "className": 'Espetaculo'
+			}
+			, "destinationColumns": [
+					'IDESPETACULO'								
+			]
+		}
+		
+		 ,  {
+			//---------------------------------------------------------------
+		 	// 4 Bidirectional many-to-one association to Bilhete
+		 	//---------------------------------------------------------------
+		 	"name": 'rel_IDBILHETE_in_indicador'
+			, "bidirectional": true
+			, "cardinality": 'many-to-one'
+			, "label": 'BR_Bilhete_Indicador'
+		
+			, "sourceTable": {
+				"name": 'Indicador'
+				, "uniqueName": 'it.eng.spagobi.meta.Indicador//Indicador'
+				, "package": 'it.eng.spagobi.meta'
+				, "className": 'Indicador'
+			}
+			, "sourceColumns": [
+					'compId.IDBILHETE'								]
+			, "destinationTable": {
+				"name": 'Bilhete'
+				, "uniqueName": 'it.eng.spagobi.meta.Bilhete//Bilhete'
+				, "package": 'it.eng.spagobi.meta'
+				, "className": 'Bilhete'
+			}
+			, "destinationColumns": [
+					'IDBILHETE'								
+			]
+		}
+		
+		 ,  {
+			//---------------------------------------------------------------
+		 	// 5 Bidirectional many-to-one association to Espetaculo
+		 	//---------------------------------------------------------------
+		 	"name": 'rel_IDESPETACULO_in_indicador'
+			, "bidirectional": true
+			, "cardinality": 'many-to-one'
+			, "label": 'BR_Espetaculo_Indicador'
+		
+			, "sourceTable": {
+				"name": 'Indicador'
+				, "uniqueName": 'it.eng.spagobi.meta.Indicador//Indicador'
+				, "package": 'it.eng.spagobi.meta'
+				, "className": 'Indicador'
+			}
+			, "sourceColumns": [
+					'compId.IDESPETACULO'								]
+			, "destinationTable": {
+				"name": 'Espetaculo'
+				, "uniqueName": 'it.eng.spagobi.meta.Espetaculo//Espetaculo'
+				, "package": 'it.eng.spagobi.meta'
+				, "className": 'Espetaculo'
+			}
+			, "destinationColumns": [
+					'IDESPETACULO'								
+			]
+		}
+		
+		 ,  {
+			//---------------------------------------------------------------
+		 	// 6 Bidirectional many-to-one association to Programacao
+		 	//---------------------------------------------------------------
+		 	"name": 'rel_IDPROGRAMACAO_in_indicador'
+			, "bidirectional": true
+			, "cardinality": 'many-to-one'
+			, "label": 'BR_Programacao_Indicador'
+		
+			, "sourceTable": {
+				"name": 'Indicador'
+				, "uniqueName": 'it.eng.spagobi.meta.Indicador//Indicador'
+				, "package": 'it.eng.spagobi.meta'
+				, "className": 'Indicador'
+			}
+			, "sourceColumns": [
+					'compId.IDPROGRAMACAO'								]
+			, "destinationTable": {
+				"name": 'Programacao'
+				, "uniqueName": 'it.eng.spagobi.meta.Programacao//Programacao'
+				, "package": 'it.eng.spagobi.meta'
+				, "className": 'Programacao'
+			}
+			, "destinationColumns": [
+					'IDPROGRAMACAO'								
+			]
+		}
+		
+
+		 //==================================================================
+		 // 4 Programacao
+		 //==================================================================
+		 
+		  , 		 
+		 {
+			//---------------------------------------------------------------
+		 	// 1 Bidirectional one-to-many association to Indicador
+		 	//---------------------------------------------------------------
+		 	"name": 'rel_IDPROGRAMACAO_in_programacao'
+			, "bidirectional": true
+			, "cardinality": 'one-to-many'
+			, "label": 'indicador_ibfk_1'
+		
+			, "sourceTable": {
+				"name": 'Programacao'
+				, "uniqueName": 'it.eng.spagobi.meta.Programacao//Programacao'
+				, "package": 'it.eng.spagobi.meta'
+				, "className": 'Programacao'
+			}
+			, "sourceColumns": [
+					'IDPROGRAMACAO'								]
+			, "destinationTable": {
+				"name": 'Indicador'
+				, "uniqueName": 'it.eng.spagobi.meta.Indicador//Indicador'
+				, "package": 'it.eng.spagobi.meta'
+				, "className": 'Indicador'
+			}
+			, "destinationColumns": [
+					'compId.IDPROGRAMACAO'								
+			]
+		}
+		
+		 ,  {
+			//---------------------------------------------------------------
+		 	// 2 Bidirectional one-to-many association to Indicador
+		 	//---------------------------------------------------------------
+		 	"name": 'rel_IDPROGRAMACAO_in_indicador'
+			, "bidirectional": true
+			, "cardinality": 'one-to-many'
+			, "label": 'BR_Programacao_Indicador'
+		
+			, "sourceTable": {
+				"name": 'Programacao'
+				, "uniqueName": 'it.eng.spagobi.meta.Programacao//Programacao'
+				, "package": 'it.eng.spagobi.meta'
+				, "className": 'Programacao'
+			}
+			, "sourceColumns": [
+					'IDPROGRAMACAO'								]
+			, "destinationTable": {
+				"name": 'Indicador'
+				, "uniqueName": 'it.eng.spagobi.meta.Indicador//Indicador'
+				, "package": 'it.eng.spagobi.meta'
+				, "className": 'Indicador'
+			}
+			, "destinationColumns": [
+					'compId.IDPROGRAMACAO'								
+			]
+		}
+		
+
+	]
+}

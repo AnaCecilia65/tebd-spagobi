@@ -1,0 +1,50 @@
+<?xml version="1.0" ?>
+<SCHEMA name="ModelTeatroV1">
+<Dimension name="Bilhete">
+<Hierarchy hasAll="true" 
+allMemberName="All Bilhete"
+primaryKey="IDBILHETE" 
+>
+<Table name="bilhete"/>
+<Level name="VALOR" column="VALOR" 
+uniqueMembers="false"
+/>
+</Hierarchy>
+</Dimension> 
+<Dimension name="Espetaculo">
+<Hierarchy hasAll="true" 
+allMemberName="All Espetaculo"
+primaryKey="IDESPETACULO" 
+>
+<Table name="espetaculo"/>
+<Level name="NOME" column="NOME" 
+uniqueMembers="false"
+/>
+</Hierarchy>
+</Dimension> 
+<Dimension name="Programacao">
+<Hierarchy hasAll="true" 
+allMemberName="All Programacao"
+primaryKey="IDPROGRAMACAO" 
+>
+<Table name="programacao"/>
+<Level name="ANO" column="ANO" 
+uniqueMembers="false"
+/>
+<Level name="MES" column="MES" 
+uniqueMembers="false"
+/>
+<Level name="DIA" column="DIA" 
+uniqueMembers="false"
+/>
+</Hierarchy>
+</Dimension> 
+<Cube name="Indicador">
+<Table name="indicador"/>
+<DimensionUsage name="Bilhete" source="Bilhete" foreignKey="IDBILHETE"/>
+<DimensionUsage name="Espetaculo" source="Espetaculo" foreignKey="IDESPETACULO"/>
+<DimensionUsage name="Programacao" source="Programacao" foreignKey="IDPROGRAMACAO"/>
+<Measure name="VENDASBILHETES" column="VENDASBILHETES" aggregator="sum" formatString="#,###"/>
+<Measure name="FATURAMENTOBILHETES" column="FATURAMENTOBILHETES" aggregator="sum" formatString="#,###"/>
+</Cube> 
+</SCHEMA>
